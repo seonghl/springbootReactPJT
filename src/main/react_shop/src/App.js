@@ -8,7 +8,7 @@ function App() {
 
     useEffect(() => {
         axios.get('/api/hello')
-        .then(response => {setHello(response.data); console.log(response); console.log("aafaa");})
+        .then(response => {setHello(response.data); console.log(response); console.log("aafhhaa");})
         .catch(error => console.log(error))
  	}, []);
 
