@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userMapper">
+
+	<select id="selectUserMstDetail" parameterType="userVO" resultType="userVO">
+		SELECT
+			  USER_ID
+			, USER_NAME
+			, REGISTER_ID
+			, REGISTER_DATE_TIME
+			, UPDATE_ID
+			, UPDATE_DATE_TIME
+		FROM TB_USER_MST
+		WHERE USER_ID = #{userId}
+	</select>
+<!-- 
+	<select id="selectUserListTotalCount" parameterType="userDTO" resultType="int">
+		SELECT
+			count(*)
+		FROM TB_USER_INFO
+		WHERE USER_ID != 'admin'
+	</select>
+	
+	<select id="selectUserInfo" parameterType="string" resultType="userDTO">
+		SELECT USER_ID
+				, USER_NAME
+				, USER_PWD
+				, USER_AUTHORITY
+				, CASE
+						WHEN (USER_AUTHORITY = 'ROLE_ADMIN') THEN '[관리자]'
+						WHEN (USER_AUTHORITY = 'ROLE_USER') THEN '[사용자]'
+						ELSE ''
+					END AS USER_AUTHORITY_NAME
+				, PHONE_NUMBER
+				, MAIL_ADDRESS
+				, REG_USER
+				, REG_DATE
+				, MOD_USER
+				, MOD_DATE
+		  FROM TB_USER_INFO
+		 WHERE USER_ID = #{userId}
+	</select>
+	
+	<insert id="addUser" parameterType="userDTO">
+		INSERT INTO TB_USER_INFO 
+		(
+			  USER_ID
+			, USER_NAME
+			, USER_PWD
+			, USER_AUTHORITY
+			, REG_USER
+			, REG_DATE
+			, MOD_USER
+			, MOD_DATE
+		) 
+		VALUES 
+		(
+			  #{user_id} 
+			, #{user_name}
+			, #{user_pwd}
+			, #{user_authority}
+			, 'admin'
+			, SYSDATE()
+			, 'admin'
+			, SYSDATE()
+		)
+	</insert>
+	
+	<update id="updateUser" parameterType="userDTO">
+		UPDATE 
+			TB_USER_INFO 
+		SET 
+			  USER_NAME = #{user_name}
+			, USER_PWD = #{user_pwd}
+			, USER_AUTHORITY = #{user_authority}
+			, MOD_USER = 'admin' 
+			, MOD_DATE = SYSDATE()
+		WHERE USER_ID = #{user_id}
+	</update>
+	
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM TB_USER_INFO
+		WHERE USER_ID = #{userId}
+	</delete>
+ -->
+</mapper>
