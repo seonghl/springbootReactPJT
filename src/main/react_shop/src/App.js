@@ -1,9 +1,12 @@
-// src/main/frontend/src/App.js
-
+/* src/App.js */
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { Layout } from './layout/Layout';
+import Main from './layout/Main';
+//import NotFoundPage from './routes/NotFoundPage';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-function App() {
+const App = ()  => {
    const [hello, setHello] = useState('')
 
     useEffect(() => {
@@ -13,11 +16,12 @@ function App() {
  	}, []);
 
     return (
-        <div>
-            백엔드에서 가져온 데이터입니다 : {hello}
-        </div>
-    );
+        <Layout>
+            <div>
+                백엔드에서 가져온 데이터입니다 : {hello}
+            </div>
+        </Layout>
+    )
 }
 
 export default App;
-
