@@ -1,17 +1,18 @@
+import React from 'react';
 import { Header, Footer } from './Main';
 
-const Layout = ({ children, match, location, history }) => {
+const Layout = (props) => {
+    const {children, setContent, isOpenModal} = props;
     return (
         <>
             <Header />
+                <main>
+                {React.cloneElement(children, {setContent, isOpenModal})}
+                </main>
             
-            <main>
-              {children}
-            </main>
-
             <Footer />
         </>
-    );
+    )
 };
 
 export default Layout;

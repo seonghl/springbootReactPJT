@@ -1,8 +1,6 @@
 /* src/App.js */
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
-import { Layout } from './layout/Layout';
-import Main from './layout/Main';
-//import NotFoundPage from './routes/NotFoundPage';
+//import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import Layout from './layout/Layout';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
